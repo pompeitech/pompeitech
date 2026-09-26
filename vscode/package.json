@@ -1,0 +1,50 @@
+{
+  "name": "lava-theme",
+  "displayName": "Lava",
+  "description": "Volcanic-stone light & dark themes — by Pompei Tech",
+  "version": "0.1.0",
+  "publisher": "pompeitech",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pompeitech/pompeitech.git",
+    "directory": "vscode"
+  },
+  "homepage": "https://github.com/pompeitech/pompeitech/tree/main/vscode#readme",
+  "bugs": {
+    "url": "https://github.com/pompeitech/pompeitech/issues"
+  },
+  "galleryBanner": {
+    "color": "#0F0E0D",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "lava",
+    "pompei",
+    "warm",
+    "light",
+    "color-theme"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Lava Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/lava-dark-color-theme.json"
+      },
+      {
+        "label": "Lava Light",
+        "uiTheme": "vs",
+        "path": "./themes/lava-light-color-theme.json"
+      }
+    ]
+  }
+}

@@ -10,7 +10,7 @@ function hexToRgb(hex) {
 }
 
 function rgbToHex(rgb) {
-  return "#" + rgb.map((v) => Math.round(clamp(v) * 255).toString(16).padStart(2, "0")).join("");
+  return "#" + rgb.map((v) => Math.round(clamp(v) * 255).toString(16).padStart(2, "0")).join("").toUpperCase();
 }
 
 export function oklchToHex([L, C, h]) {
@@ -40,10 +40,10 @@ export function hexToOklch(hex) {
   return [L, Math.hypot(A, B), h < 0 ? h + 360 : h];
 }
 
-/** Accepts "#rrggbb" or "oklch(L C h)" and returns lowercase "#rrggbb". */
+/** Accepts "#RRGGBB" or "oklch(L C h)" and returns uppercase "#RRGGBB". */
 export function toHex(value) {
   const m = value.match(/^oklch\(\s*([\d.]+)\s+([\d.]+)\s+([\d.]+)\s*\)$/);
-  return m ? oklchToHex(m.slice(1).map(Number)) : value.toLowerCase();
+  return m ? oklchToHex(m.slice(1).map(Number)) : value.toUpperCase();
 }
 
 /** Linear blend in sRGB: t=0 -> a, t=1 -> b. */

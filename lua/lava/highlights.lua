@@ -174,6 +174,10 @@ function M.get(c, config)
     GitSignsChange = { fg = c.git_change },
     GitSignsDelete = { fg = c.git_delete },
 
+    -- lazygit.nvim terminal float
+    LazyGitFloat = { fg = c.fg, bg = bg_float },
+    LazyGitBorder = { fg = c.comment, bg = bg_float },
+
     -- Telescope
     TelescopeBorder = { fg = c.border, bg = bg_float },
     TelescopeNormal = { fg = c.fg, bg = bg_float },

@@ -181,7 +181,7 @@ ${["black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"].map((k
 `,
   ],
 
-  lazygit: ({ name, colors: c }) => [
+  lazygit: ({ name, appearance, colors: c }) => [
     `extras/lazygit/${name}.yml`,
     `# ${HEADER}
 gui:
@@ -190,9 +190,9 @@ gui:
       - "${c.primary}"
       - bold
     inactiveBorderColor:
-      - "${c.border}"
+      - "${appearance === "light" ? c.comment : c.border}"
     searchingActiveBorderColor:
-      - "${c.highlight}"
+      - "${c.yellow}"
       - bold
     optionsTextColor:
       - "${c.blue}"
@@ -205,7 +205,7 @@ gui:
     cherryPickedCommitBgColor:
       - "${c.bg_highlight}"
     markedBaseCommitFgColor:
-      - "${c.highlight}"
+      - "${c.yellow}"
     markedBaseCommitBgColor:
       - "${c.bg_highlight}"
     unstagedChangesColor:

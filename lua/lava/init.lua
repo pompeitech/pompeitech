@@ -3,6 +3,7 @@ local M = {}
 ---@class LavaConfig
 ---@field style "dark"|"light"|nil  force a variant; nil follows vim.o.background
 ---@field transparent boolean  don't set a background color
+---@field lazygit boolean  apply Lava to LazyGit launched from Neovim
 ---@field italic_comments boolean
 ---@field on_colors fun(colors: table)|nil  tweak the palette before highlights are built
 ---@field on_highlights fun(hl: table, colors: table)|nil  override individual highlight groups
@@ -10,6 +11,7 @@ M.config = {
   style = nil,
   transparent = false,
   italic_comments = true,
+  lazygit = true,
   on_colors = nil,
   on_highlights = nil,
 }
@@ -64,6 +66,10 @@ function M.load(variant)
       end
     end
     vim.o.guicursor = table.concat(parts, ",")
+  end
+
+  if M.config.lazygit then
+    require("lava.lazygit").apply(variant)
   end
 
   local t = colors.terminal

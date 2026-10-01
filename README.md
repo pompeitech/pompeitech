@@ -50,6 +50,7 @@ The `syntax` block adds the extra hues a code editor needs (olive, fresco teal, 
     -- style = "dark",        -- "dark" | "light" | nil (nil follows vim.o.background)
     -- transparent = false,
     -- italic_comments = true,
+    -- lazygit = true,         -- apply Lava to LazyGit launched from Neovim
     -- on_colors = function(colors) end,
     -- on_highlights = function(hl, colors) end,
   },
@@ -103,7 +104,9 @@ Declare `@plugin 'pompeitech/pompeitech'` **before** those plugins so they pick 
 
 ## lazygit
 
-lazygit merges multiple config files, so keep your own config and add the theme on top:
+In Neovim, Lava automatically adds its theme to `LG_CONFIG_FILE`, preserving your personal configuration. Reopen LazyGit after changing the colorscheme. Set `lazygit = false` in `setup()` to manage its theme yourself.
+
+For standalone LazyGit, keep your own config and add the theme on top:
 
 ```sh
 export LG_CONFIG_FILE="$HOME/Library/Application Support/lazygit/config.yml,/path/to/pompeitech/extras/lazygit/lava-dark.yml"

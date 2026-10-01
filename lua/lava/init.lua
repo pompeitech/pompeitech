@@ -44,6 +44,28 @@ function M.load(variant)
     vim.api.nvim_set_hl(0, group, spec)
   end
 
+  -- A cursor without a highlight uses the terminal's own color, which may
+  -- still be configured for a dark theme. Keep shapes, blinking and explicit
+  -- user highlights; give only unstyled entries the theme's cursor color.
+  if vim.o.guicursor ~= "" then
+    local parts = vim.split(vim.o.guicursor, ",", { plain = true })
+    for i, part in ipairs(parts) do
+      local args = part:match(":(.*)$")
+      local has_highlight = false
+      for arg in (args or ""):gmatch("[^-]+") do
+        if arg ~= "block" and not arg:match("^ver%d+$") and not arg:match("^hor%d+$")
+          and not arg:match("^blinkwait%d+$") and not arg:match("^blinkon%d+$")
+          and not arg:match("^blinkoff%d+$") then
+          has_highlight = true
+        end
+      end
+      if not has_highlight then
+        parts[i] = part .. "-Cursor/lCursor"
+      end
+    end
+    vim.o.guicursor = table.concat(parts, ",")
+  end
+
   local t = colors.terminal
   local ansi = {
     t.black, t.red, t.green, t.yellow, t.blue, t.magenta, t.cyan, t.white,

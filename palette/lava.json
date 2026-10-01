@@ -73,7 +73,8 @@
         "comment": "#736d65",
         "dark3": "#79736b",
         "fg_gutter": "#8c857b",
-        "primary": "#b74727"
+        "primary": "#b74727",
+        "bg_tree_selection": "#ccd9e2"
       }
     }
   }

@@ -12,7 +12,10 @@ function M.get(c, config)
     NormalFloat = { fg = c.fg, bg = bg_float },
     FloatBorder = { fg = c.border, bg = bg_float },
     FloatTitle = { fg = c.primary, bg = bg_float, bold = true },
-    Cursor = { fg = c.bg, bg = c.fg },
+    Cursor = { fg = c.bg, bg = c.fg, blend = 0 },
+    lCursor = { link = "Cursor" },
+    TermCursor = { link = "Cursor" },
+    CursorIM = { link = "Cursor" },
     CursorLine = { bg = c.bg_highlight },
     CursorColumn = { bg = c.bg_highlight },
     CursorLineNr = { fg = c.primary, bold = true },
@@ -190,6 +193,7 @@ function M.get(c, config)
     BlinkCmpDocBorder = { link = "FloatBorder" },
 
     -- neo-tree
+    NeoTreeCursorLine = { bg = c.bg_tree_selection or c.bg_visual, bold = true },
     NeoTreeNormal = { fg = c.fg_dark, bg = c.bg_dark },
     NeoTreeNormalNC = { fg = c.fg_dark, bg = c.bg_dark },
     NeoTreeWinSeparator = { fg = c.bg_dark, bg = c.bg_dark },

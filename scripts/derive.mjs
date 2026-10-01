@@ -59,10 +59,10 @@ export function derive(variant, raw) {
   const terminal = {
     black: dark ? s.secondary : s.foreground,
     ...base,
-    white: dark ? s.muted_foreground : s.border,
+    white: dark ? s.muted_foreground : colors.fg_dark,
     bright_black: dark ? mix(s.border, s.muted_foreground, 0.5) : s.muted_foreground,
     ...Object.fromEntries(Object.entries(base).map(([k, v]) => [`bright_${k}`, bright(v)])),
-    bright_white: dark ? s.foreground : s.secondary,
+    bright_white: dark ? s.foreground : colors.fg,
   };
   // keep ANSI order stable: black, red, ..., white, bright_black, ...
   const order = ["black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"];

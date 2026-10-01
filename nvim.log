@@ -1,0 +1,2 @@
+WRN 2026-10-01T15:21:35.941 ?.25923    server_start:197: Failed to start server: operation not permitted: /var/folders/pv/3p4g5p3s3yl0yxtg7r_t4fch0000gn/T/nvim.davidedantonio/DaeR2e/nvim.25923.0
+WRN 2026-10-01T15:21:40.799 ?.26080    server_start:197: Failed to start server: operation not permitted: /var/folders/pv/3p4g5p3s3yl0yxtg7r_t4fch0000gn/T/nvim.davidedantonio/bCnlr8/nvim.26080.0

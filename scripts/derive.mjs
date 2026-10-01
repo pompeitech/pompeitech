@@ -43,13 +43,16 @@ export function derive(variant, raw) {
     git_add: x.green,
     git_change: x.yellow,
     git_delete: s.destructive,
+
+    // Editor refinements keep the brand specification intact.
+    ...resolve(raw.editor || {}),
   };
 
-  const tint = dark ? 0.16 : 0.22;
-  colors.diff_add = mix(s.background, x.green, tint);
-  colors.diff_change = mix(s.background, x.yellow, tint);
-  colors.diff_delete = mix(s.background, s.destructive, tint);
-  colors.diff_text = mix(s.background, x.yellow, tint * 2);
+  const tint = dark ? 0.16 : 0.12;
+  colors.diff_add = mix(colors.bg, x.green, tint);
+  colors.diff_change = mix(colors.bg, x.yellow, tint);
+  colors.diff_delete = mix(colors.bg, s.destructive, tint);
+  colors.diff_text = mix(colors.bg, x.yellow, tint * 2);
 
   const base = { red: s.destructive, green: x.green, yellow: x.yellow, blue: x.blue, magenta: x.magenta, cyan: x.teal };
   const bright = (c) => lighten(c, dark ? 0.08 : -0.07);

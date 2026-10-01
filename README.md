@@ -34,7 +34,9 @@ The single source of truth is [`palette/lava.json`](palette/lava.json). It mirro
 | Destructive | Rosso pompeiano | `#B9382B` | `#E05B52` |
 | Highlight | Bronzo | `#D8A146` | `#E0AA50` |
 
-The `syntax` block adds the extra hues a code editor needs (olive, fresco teal, sky blue, rose…). They are defined in OKLCH at the same warmth as the brand colors, and every one of them reaches at least WCAG AA contrast (4.5:1) on its background. The light variant uses the spec's `primary-emphasis` for keywords and a darker bronze for types, because the bright UI tones are too light to read as text on Pomice.
+The light variant adds an `editor` block: neutral ivory surfaces, ink text, a deeper lava accent, and a cool selection. These overrides preserve the original brand tokens and are shared by all generated ports.
+
+The `syntax` block adds the extra hues a code editor needs (olive, fresco teal, sky blue, rose…). They are defined in OKLCH at the same warmth as the brand colors, and every one of them reaches at least WCAG AA contrast (4.5:1) on its background. The light variant uses burnt orange for keywords and a darker bronze for types; bright bronze is reserved for filled highlights.
 
 ## Neovim
 

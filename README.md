@@ -12,6 +12,7 @@ The Pompei Tech color themes, forged from volcanic stone: **Lava Dark** and **La
 | lazygit | [`extras/lazygit`](extras/lazygit) |
 | iTerm2 | [`extras/iterm`](extras/iterm) |
 | fzf | [`extras/fzf`](extras/fzf) (also applied to tmux popups by the tmux plugin) |
+| zsh suggestions / completion / syntax | [`extras/zsh`](extras/zsh) |
 | powerlevel10k | [`extras/p10k`](extras/p10k) |
 | kitty | [`extras/kitty`](extras/kitty) |
 | Ghostty | [`extras/ghostty`](extras/ghostty) |
@@ -130,6 +131,8 @@ export LAVA_HOME="$HOME/.local/share/nvim/lazy/lava" # any clone of this repo
 source $LAVA_HOME/extras/fzf/lava-$LAVA_STYLE.sh     # fzf colors (idempotent)
 source $LAVA_HOME/extras/p10k/lava-$LAVA_STYLE.zsh   # after ~/.p10k.zsh
 ```
+
+Use the same `LAVA_STYLE` as your terminal background: `light` for a light terminal. The p10k theme also loads matching autosuggestion, completion menu, and syntax colors. Load it after your shell plugins. Without p10k, source `$LAVA_HOME/extras/zsh/lava-$LAVA_STYLE.zsh` directly.
 
 powerlevel10k's lean style hardcodes the git colors inside `my_git_formatter`. To let Lava color them, change those four lines in `~/.p10k.zsh` so they read the Lava variables and keep the originals as fallback:
 

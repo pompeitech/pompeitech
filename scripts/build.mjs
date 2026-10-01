@@ -284,6 +284,46 @@ esac
     ];
   },
 
+  zsh: ({ name, colors: c }) => {
+    const sgr = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16)).join(";");
+    const syntax = {
+      default: c.fg, "unknown-token": c.red, "reserved-word": c.orange,
+      alias: c.green, "suffix-alias": c.green, "global-alias": c.teal,
+      builtin: c.green, function: c.blue, command: c.green, precommand: c.orange,
+      "hashed-command": c.green, path: c.blue, "path-to-dir": c.blue,
+      globbing: c.magenta, "globbing-ext": c.magenta, "history-expansion": c.magenta,
+      "single-hyphen-option": c.teal, "double-hyphen-option": c.teal,
+      "single-quoted-argument": c.green, "double-quoted-argument": c.green,
+      "dollar-quoted-argument": c.green, "back-quoted-argument": c.teal,
+      "back-or-dollar-double-quoted-argument": c.teal,
+      "back-dollar-quoted-argument": c.teal, comment: c.comment,
+      variable: c.cyan, assign: c.fg, redirection: c.orange,
+      commandseparator: c.fg_dark, "command-substitution-delimiter": c.orange,
+    };
+    return [
+      `extras/zsh/${name}.zsh`,
+      `# ${HEADER}
+# Source after shell plugins. Also sourced automatically by the Lava p10k theme.
+typeset -g ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=${c.comment}'
+
+# Completion text, file types, and the selected entry (no faint attribute).
+zstyle ':completion:*' list-colors 'no=38;2;${sgr(c.fg)}' 'fi=38;2;${sgr(c.fg)}' 'di=38;2;${sgr(c.blue)}' 'ln=38;2;${sgr(c.teal)}' 'ex=38;2;${sgr(c.green)}' 'ma=1;38;2;${sgr(c.fg)};48;2;${sgr(c.bg_visual)}'
+zstyle ':completion:*:descriptions' format '%B%F{${c.blue}}%d%f%b'
+zstyle ':completion:*:-command-:*' format '%B%F{${c.blue}}commands%f%b'
+zstyle ':completion:*:warnings' format '%F{${c.red}}%d%f'
+zstyle ':completion:*:messages' format '%F{${c.fg_dark}}%d%f'
+
+# Color syntax directly, including plugins that use fixed 256-color defaults.
+if (( \${+ZSH_HIGHLIGHT_STYLES} )); then
+${Object.entries(syntax).map(([k, v]) => `  ZSH_HIGHLIGHT_STYLES[${k}]='fg=${v}'`).join("\n")}
+fi
+if (( \${+FAST_HIGHLIGHT_STYLES} )); then
+${Object.entries(syntax).map(([k, v]) => `  FAST_HIGHLIGHT_STYLES[\${FAST_THEME_NAME-}${k}]='fg=${v}'`).join("\n")}
+fi
+`,
+    ];
+  },
+
   p10k: ({ name, colors: c }) => {
     const fg = {
       OS_ICON: c.primary,
@@ -325,6 +365,7 @@ esac
       `extras/p10k/${name}.zsh`,
       `# ${HEADER}
 # Source after ~/.p10k.zsh. Works best with the lean/pure styles (transparent background).
+source "\${\${(%):-%N}:A:h:h}/zsh/${name}.zsh"
 ${Object.entries(fg).map(([k, v]) => `typeset -g POWERLEVEL9K_${k}_FOREGROUND='${v}'`).join("\n")}
 
 # Git colors, read by my_git_formatter in ~/.p10k.zsh when it uses \${LAVA_GIT_*:-default}

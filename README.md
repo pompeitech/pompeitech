@@ -1,50 +1,55 @@
-# Pompei Tech — Lava
+<div align="center">
+  <img src="assets/lava-banner.svg" alt="Lava — warm volcanic color themes by Pompei Tech" width="960" />
+  <h1>Lava</h1>
+  <p>Volcanic warmth for your editor, terminal and workspace.<br />Two coordinated themes: <strong>Lava Dark</strong> and <strong>Lava Light</strong>.</p>
+  <p><a href="#palette">Explore the palette</a> · <a href="#installation">Install a theme</a> · <a href="#development">Develop a port</a></p>
+</div>
 
-The Pompei Tech color themes, forged from volcanic stone: **Lava Dark** and **Lava Light**, ported to every tool we use.
-
-| Tool | Location |
-| --- | --- |
-| Neovim | repository root (`colors/`, `lua/lava/`) |
-| VS Code | [`vscode/`](vscode) |
-| WezTerm | [`extras/wezterm`](extras/wezterm) |
-| tmux | TPM plugin (`lava.tmux` at the root) |
-| lualine | ships with the Neovim plugin (`theme = "lava"`) |
-| lazygit | [`extras/lazygit`](extras/lazygit) |
-| iTerm2 | [`extras/iterm`](extras/iterm) |
-| fzf | [`extras/fzf`](extras/fzf) (also applied to tmux popups by the tmux plugin) |
-| zsh suggestions / completion / syntax | [`extras/zsh`](extras/zsh) |
-| powerlevel10k | [`extras/p10k`](extras/p10k) |
-| kitty | [`extras/kitty`](extras/kitty) |
-| Ghostty | [`extras/ghostty`](extras/ghostty) |
-| Alacritty | [`extras/alacritty`](extras/alacritty) |
+---
 
 ## Palette
 
 The single source of truth is [`palette/lava.json`](palette/lava.json). It mirrors the brand spec:
 
-| Role | Name | Light | Dark |
-| --- | --- | --- | --- |
-| Primary | Lava | `#D65A31` | `#E86B3F` |
-| Background | Pomice | `#FAF6EF` | `#0F0E0D` |
-| Foreground | Ossidiana | `#2B211D` | `#F5EFE8` |
-| Card | Marmo caldo | `#FFFDF9` | `#181513` |
-| Secondary | Cenere chiara | `#EDE4D8` | `#28221E` |
-| Accent | Terracotta tenue | `#F3D5BF` | `#3A2016` |
-| Muted text | Cenere | `#756860` | `#A99D94` |
-| Border | Pietra | `#DDD1C4` | `#3A302A` |
-| Destructive | Rosso pompeiano | `#B9382B` | `#E05B52` |
-| Highlight | Bronzo | `#D8A146` | `#E0AA50` |
+<div align="center">
+  <img src="extras/palette/lava-light.svg" alt="Lava Light: color samples, brand names, roles and hexadecimal values" width="400" />
+  <img src="extras/palette/lava-dark.svg" alt="Lava Dark: color samples, brand names, roles and hexadecimal values" width="400" />
+</div>
 
 The light variant adds an `editor` block: neutral ivory surfaces, ink text, a deeper lava accent, and a cool selection. These overrides preserve the original brand tokens and are shared by all generated ports.
 
 The `syntax` block adds the extra hues a code editor needs (olive, fresco teal, sky blue, rose…). They are defined in OKLCH at the same warmth as the brand colors, and every one of them reaches at least WCAG AA contrast (4.5:1) on its background. The light variant uses burnt orange for keywords and a darker bronze for types; bright bronze is reserved for filled highlights.
 
-## Neovim
+## Installation
+
+Choose your tool below. Examples use **Lava Dark**; switch `dark` to `light` for the light variant, or select **Lava Light** where a display name is required.
+
+| Tool | Location |
+| --- | --- |
+| [Neovim](#neovim) | repository root (`colors/`, `lua/lava/`) |
+| [VS Code](#vs-code) | [`vscode/`](vscode) |
+| [WezTerm](#wezterm) | [`extras/wezterm`](extras/wezterm) |
+| [tmux](#tmux) | TPM plugin (`lava.tmux` at the root) |
+| [lualine](#neovim) | ships with the Neovim plugin (`theme = "lava"`) |
+| [lazygit](#lazygit) | [`extras/lazygit`](extras/lazygit) |
+| [iTerm2](#iterm2) | [`extras/iterm`](extras/iterm) |
+| [fzf](#shell-zsh) | [`extras/fzf`](extras/fzf) (also applied to tmux popups by the tmux plugin) |
+| [zsh suggestions / completion / syntax](#shell-zsh) | [`extras/zsh`](extras/zsh) |
+| [powerlevel10k](#shell-zsh) | [`extras/p10k`](extras/p10k) |
+| [kitty](#kitty-ghostty-alacritty) | [`extras/kitty`](extras/kitty) |
+| [Ghostty](#kitty-ghostty-alacritty) | [`extras/ghostty`](extras/ghostty) |
+| [Alacritty](#kitty-ghostty-alacritty) | [`extras/alacritty`](extras/alacritty) |
+| [Slack](#slack) | [`extras/slack`](extras/slack) |
+
+<a id="neovim"></a>
+
+<details open>
+<summary><strong>Neovim</strong></summary>
 
 ```lua
 -- lazy.nvim
 {
-  "pompeitech/pompeitech", -- adjust to the real repo path
+  "pompeitech/pompeitech",
   lazy = false,
   priority = 1000,
   opts = {
@@ -66,7 +71,12 @@ Colorschemes: `lava` (follows `background` / `style`), `lava-dark`, `lava-light`
 
 Integrated plugins: lualine (`theme = "lava"`, `"lava-dark"`, `"lava-light"`), barbecue/navic (`theme = "auto"`), neo-tree, noice, snacks, trouble, telescope, blink.cmp, which-key, gitsigns, todo-comments, rainbow-delimiters, lazy.nvim, mason, octo.nvim, copilot, yanky.
 
-## VS Code
+</details>
+
+<a id="vs-code"></a>
+
+<details>
+<summary><strong>VS Code</strong></summary>
 
 ```sh
 cd vscode && npx @vscode/vsce package   # produces lava-theme-<version>.vsix
@@ -75,14 +85,24 @@ code --install-extension lava-theme-*.vsix
 
 For local development, open `vscode/` in VS Code and press F5.
 
-## WezTerm
+</details>
+
+<a id="wezterm"></a>
+
+<details>
+<summary><strong>WezTerm</strong></summary>
 
 ```lua
 config.color_scheme_dirs = { "/path/to/pompeitech/extras/wezterm" }
 config.color_scheme = "Lava Dark"
 ```
 
-## tmux
+</details>
+
+<a id="tmux"></a>
+
+<details>
+<summary><strong>tmux</strong></summary>
 
 With [TPM](https://github.com/tmux-plugins/tpm):
 
@@ -103,7 +123,12 @@ The theme also colors every popup (`popup-style`, `popup-border-style`) and sets
 
 Declare `@plugin 'pompeitech/pompeitech'` **before** those plugins so they pick the colors up when they load. floax is refreshed anyway if it loads first.
 
-## lazygit
+</details>
+
+<a id="lazygit"></a>
+
+<details>
+<summary><strong>lazygit</strong></summary>
 
 In Neovim, Lava automatically adds its theme to `LG_CONFIG_FILE`, preserving your personal configuration. Reopen LazyGit after changing the colorscheme. Set `lazygit = false` in `setup()` to manage its theme yourself.
 
@@ -123,7 +148,12 @@ vim.g.lazygit_config_file_path = {
 }
 ```
 
-## Shell (zsh)
+</details>
+
+<a id="shell-zsh"></a>
+
+<details>
+<summary><strong>Shell (zsh)</strong></summary>
 
 ```zsh
 export LAVA_STYLE="dark"                           # or "light"
@@ -143,11 +173,21 @@ local  untracked=${LAVA_GIT_UNTRACKED:-'%39F'}
 local conflicted=${LAVA_GIT_CONFLICTED:-'%196F'}
 ```
 
-## iTerm2
+</details>
+
+<a id="iterm2"></a>
+
+<details>
+<summary><strong>iTerm2</strong></summary>
 
 Settings → Profiles → Colors → Color Presets… → Import… → `extras/iterm/lava-dark.itermcolors`, then select it from the same menu.
 
-## kitty · Ghostty · Alacritty
+</details>
+
+<a id="kitty-ghostty-alacritty"></a>
+
+<details>
+<summary><strong>kitty · Ghostty · Alacritty</strong></summary>
 
 ```conf
 # kitty.conf
@@ -165,6 +205,23 @@ theme = /path/to/pompeitech/extras/ghostty/lava-dark
 import = ["/path/to/pompeitech/extras/alacritty/lava-dark.toml"]
 ```
 
+</details>
+
+<a id="slack"></a>
+
+<details>
+<summary><strong>Slack</strong></summary>
+
+Copy the single line from [`extras/slack/lava-dark.txt`](extras/slack/lava-dark.txt) or [`extras/slack/lava-light.txt`](extras/slack/lava-light.txt).
+In Slack, open **Preferences → Appearance → Custom theme → Import theme**, paste the legacy theme colors, then click **Apply**.
+See [Slack's theme guide](https://slack.com/help/articles/205166337-Change-your-Slack-theme).
+
+The legacy fields are: sidebar background, menu background, selected item background, selected item text, hover background, text, active presence, mention badge, top bar background, and top bar text.
+Surfaces, text, selection, and notifications use the brand palette; presence uses the existing syntax green. Both variants are generated from `palette/lava.json`.
+Slack adapts legacy themes to its current design, so the imported result may differ from the original colors. For a flat appearance, disable **Window gradient**. Set Slack's light/dark mode separately to match the variant.
+
+</details>
+
 ## Development
 
 Everything under `extras/`, `vscode/themes/` and `lua/lava/palettes/` is **generated**. Don't edit those files by hand:
@@ -179,3 +236,9 @@ npm run build
 - `scripts/build.mjs`: one template per target; add a new tool by adding an entry to `targets`
 
 Neovim highlight groups are hand-written in `lua/lava/highlights.lua`.
+
+---
+
+<div align="center">
+  <sub>Made by <a href="https://github.com/pompeitech">Pompei Tech</a> · One palette, every tool.</sub>
+</div>

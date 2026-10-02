@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "Lava Dark",
+  "version": "1.0.0",
+  "description": "Lava Dark by Pompei Tech. Warm volcanic colors for Firefox.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "lava-dark@pompeitech.com"
+    }
+  },
+  "theme": {
+    "colors": {
+      "frame": "#28221E",
+      "frame_inactive": "#0F0E0D",
+      "tab_background_text": "#F5EFE8",
+      "tab_selected": "#181513",
+      "tab_text": "#F5EFE8",
+      "tab_line": "#E86B3F",
+      "tab_loading": "#E86B3F",
+      "toolbar": "#181513",
+      "toolbar_text": "#F5EFE8",
+      "icons": "#E86B3F",
+      "icons_attention": "#E0AA50",
+      "button_background_hover": "#3A2016",
+      "button_background_active": "#28221E",
+      "toolbar_field": "#0F0E0D",
+      "toolbar_field_text": "#F5EFE8",
+      "toolbar_field_border": "#3A302A",
+      "toolbar_field_border_focus": "#E86B3F",
+      "toolbar_field_focus": "#0F0E0D",
+      "toolbar_field_text_focus": "#F5EFE8",
+      "toolbar_field_highlight": "#3A2016",
+      "toolbar_field_highlight_text": "#F5EFE8",
+      "toolbar_top_separator": "#3A302A",
+      "toolbar_bottom_separator": "#3A302A",
+      "toolbar_vertical_separator": "#3A302A",
+      "popup": "#181513",
+      "popup_text": "#F5EFE8",
+      "popup_border": "#3A302A",
+      "popup_highlight": "#3A2016",
+      "popup_highlight_text": "#F5EFE8",
+      "sidebar": "#0F0E0D",
+      "sidebar_text": "#F5EFE8",
+      "sidebar_border": "#3A302A",
+      "sidebar_highlight": "#3A2016",
+      "sidebar_highlight_text": "#F5EFE8",
+      "ntp_background": "#0F0E0D",
+      "ntp_text": "#F5EFE8"
+    },
+    "properties": {
+      "color_scheme": "dark",
+      "content_color_scheme": "dark"
+    }
+  }
+}

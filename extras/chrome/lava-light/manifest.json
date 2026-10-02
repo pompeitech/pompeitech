@@ -1,0 +1,103 @@
+{
+  "manifest_version": 3,
+  "name": "Lava Light",
+  "version": "1.0.0",
+  "description": "Lava Light by Pompei Tech. Warm volcanic colors for Chrome.",
+  "theme": {
+    "colors": {
+      "frame": [
+        237,
+        228,
+        216
+      ],
+      "frame_inactive": [
+        250,
+        246,
+        239
+      ],
+      "background_tab": [
+        237,
+        228,
+        216
+      ],
+      "background_tab_inactive": [
+        250,
+        246,
+        239
+      ],
+      "toolbar": [
+        255,
+        253,
+        249
+      ],
+      "toolbar_text": [
+        43,
+        33,
+        29
+      ],
+      "toolbar_button_icon": [
+        214,
+        90,
+        49
+      ],
+      "tab_text": [
+        43,
+        33,
+        29
+      ],
+      "tab_background_text": [
+        43,
+        33,
+        29
+      ],
+      "tab_background_text_inactive": [
+        117,
+        104,
+        96
+      ],
+      "bookmark_text": [
+        43,
+        33,
+        29
+      ],
+      "omnibox_background": [
+        250,
+        246,
+        239
+      ],
+      "omnibox_text": [
+        43,
+        33,
+        29
+      ],
+      "ntp_background": [
+        250,
+        246,
+        239
+      ],
+      "ntp_text": [
+        43,
+        33,
+        29
+      ],
+      "ntp_link": [
+        214,
+        90,
+        49
+      ],
+      "ntp_header": [
+        221,
+        209,
+        196
+      ],
+      "button_background": [
+        243,
+        213,
+        191
+      ]
+    },
+    "properties": {
+      "ntp_logo_alternate": 0
+    }
+  }
+}

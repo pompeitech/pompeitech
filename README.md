@@ -40,6 +40,9 @@ Choose your tool below. Examples use **Lava Dark**; switch `dark` to `light` for
 | [Ghostty](#kitty-ghostty-alacritty) | [`extras/ghostty`](extras/ghostty) |
 | [Alacritty](#kitty-ghostty-alacritty) | [`extras/alacritty`](extras/alacritty) |
 | [Slack](#slack) | [`extras/slack`](extras/slack) |
+| [Chrome](#chrome) | [`extras/chrome`](extras/chrome) |
+| [Firefox](#firefox) | [`extras/firefox`](extras/firefox) |
+| [Microsoft Edge](#edge) | [`extras/edge`](extras/edge) |
 
 <a id="neovim"></a>
 
@@ -219,6 +222,57 @@ See [Slack's theme guide](https://slack.com/help/articles/205166337-Change-your-
 The legacy fields are: sidebar background, menu background, selected item background, selected item text, hover background, text, active presence, mention badge, top bar background, and top bar text.
 Surfaces, text, selection, and notifications use the brand palette; presence uses the existing syntax green. Both variants are generated from `palette/lava.json`.
 Slack adapts legacy themes to its current design, so the imported result may differ from the original colors. For a flat appearance, disable **Window gradient**. Set Slack's light/dark mode separately to match the variant.
+
+</details>
+
+<a id="chrome"></a>
+
+<details>
+<summary><strong>Chrome</strong></summary>
+
+Two native Chrome themes are available: [Lava Dark](extras/chrome/lava-dark) and [Lava Light](extras/chrome/lava-light).
+
+1. Download or clone this repository.
+2. Open `chrome://extensions` and enable **Developer mode**.
+3. Click **Load unpacked** and select `extras/chrome/lava-dark` or `extras/chrome/lava-light` — the folder containing `manifest.json`.
+
+The theme uses the existing brand palette for the tab strip, toolbar, address bar, bookmarks and new tab page, with lava orange toolbar icons. Switch variants by loading the other folder. Restore Chrome's default theme in **Settings → Appearance → Reset to default**.
+
+These are Manifest V3 themes with no scripts or permissions. Chrome requires RGB arrays in theme manifests; the source palette keeps its uppercase hexadecimal values. Themes customize browser surfaces, while websites retain their own colors.
+
+See [Chrome's theme documentation](https://developer.chrome.com/docs/extensions/develop/ui/themes).
+
+</details>
+
+<a id="firefox"></a>
+
+<details>
+<summary><strong>Firefox</strong></summary>
+
+Choose [Lava Dark](extras/firefox/lava-dark) or [Lava Light](extras/firefox/lava-light).
+
+1. Open `about:debugging#/runtime/this-firefox`.
+2. Click **Load Temporary Add-on**.
+3. Select `manifest.json` inside `extras/firefox/lava-dark` or `extras/firefox/lava-light`.
+
+The theme colors tabs, toolbars, the address bar, menus, the sidebar and the new tab page. Lava accents mark toolbar icons, the active tab and focused fields. Each variant declares its light/dark color scheme.
+
+Temporary themes are removed when Firefox restarts. Permanent installation requires Mozilla signing; these local manifests are unsigned. See [Mozilla's static theme guide](https://extensionworkshop.com/documentation/themes/static-themes/).
+
+</details>
+
+<a id="edge"></a>
+
+<details>
+<summary><strong>Microsoft Edge</strong></summary>
+
+Choose [Lava Dark](extras/edge/lava-dark) or [Lava Light](extras/edge/lava-light).
+
+1. Open `edge://extensions` and enable **Developer mode**.
+2. Click **Load unpacked**.
+3. Select `extras/edge/lava-dark` or `extras/edge/lava-light`, the folder containing `manifest.json`.
+
+Edge uses the same Chromium color mapping as the Chrome themes. Its own new tab page and sidebar may use Edge-specific styling. Switch variants by loading the other folder. See [Microsoft's local installation guide](https://learn.microsoft.com/en-us/microsoft-edge/extensions/getting-started/extension-sideloading).
 
 </details>
 

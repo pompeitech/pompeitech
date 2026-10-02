@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "Lava Light",
+  "version": "1.0.0",
+  "description": "Lava Light by Pompei Tech. Warm volcanic colors for Firefox.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "lava-light@pompeitech.com"
+    }
+  },
+  "theme": {
+    "colors": {
+      "frame": "#EDE4D8",
+      "frame_inactive": "#FAF6EF",
+      "tab_background_text": "#2B211D",
+      "tab_selected": "#FFFDF9",
+      "tab_text": "#2B211D",
+      "tab_line": "#D65A31",
+      "tab_loading": "#D65A31",
+      "toolbar": "#FFFDF9",
+      "toolbar_text": "#2B211D",
+      "icons": "#D65A31",
+      "icons_attention": "#D8A146",
+      "button_background_hover": "#F3D5BF",
+      "button_background_active": "#EDE4D8",
+      "toolbar_field": "#FAF6EF",
+      "toolbar_field_text": "#2B211D",
+      "toolbar_field_border": "#DDD1C4",
+      "toolbar_field_border_focus": "#D65A31",
+      "toolbar_field_focus": "#FAF6EF",
+      "toolbar_field_text_focus": "#2B211D",
+      "toolbar_field_highlight": "#F3D5BF",
+      "toolbar_field_highlight_text": "#2B211D",
+      "toolbar_top_separator": "#DDD1C4",
+      "toolbar_bottom_separator": "#DDD1C4",
+      "toolbar_vertical_separator": "#DDD1C4",
+      "popup": "#FFFDF9",
+      "popup_text": "#2B211D",
+      "popup_border": "#DDD1C4",
+      "popup_highlight": "#F3D5BF",
+      "popup_highlight_text": "#2B211D",
+      "sidebar": "#FAF6EF",
+      "sidebar_text": "#2B211D",
+      "sidebar_border": "#DDD1C4",
+      "sidebar_highlight": "#F3D5BF",
+      "sidebar_highlight_text": "#2B211D",
+      "ntp_background": "#FAF6EF",
+      "ntp_text": "#2B211D"
+    },
+    "properties": {
+      "color_scheme": "light",
+      "content_color_scheme": "light"
+    }
+  }
+}

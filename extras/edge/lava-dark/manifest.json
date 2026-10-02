@@ -1,0 +1,103 @@
+{
+  "manifest_version": 3,
+  "name": "Lava Dark",
+  "version": "1.0.0",
+  "description": "Lava Dark by Pompei Tech. Warm volcanic colors for Microsoft Edge.",
+  "theme": {
+    "colors": {
+      "frame": [
+        40,
+        34,
+        30
+      ],
+      "frame_inactive": [
+        15,
+        14,
+        13
+      ],
+      "background_tab": [
+        40,
+        34,
+        30
+      ],
+      "background_tab_inactive": [
+        15,
+        14,
+        13
+      ],
+      "toolbar": [
+        24,
+        21,
+        19
+      ],
+      "toolbar_text": [
+        245,
+        239,
+        232
+      ],
+      "toolbar_button_icon": [
+        232,
+        107,
+        63
+      ],
+      "tab_text": [
+        245,
+        239,
+        232
+      ],
+      "tab_background_text": [
+        245,
+        239,
+        232
+      ],
+      "tab_background_text_inactive": [
+        169,
+        157,
+        148
+      ],
+      "bookmark_text": [
+        245,
+        239,
+        232
+      ],
+      "omnibox_background": [
+        15,
+        14,
+        13
+      ],
+      "omnibox_text": [
+        245,
+        239,
+        232
+      ],
+      "ntp_background": [
+        15,
+        14,
+        13
+      ],
+      "ntp_text": [
+        245,
+        239,
+        232
+      ],
+      "ntp_link": [
+        232,
+        107,
+        63
+      ],
+      "ntp_header": [
+        58,
+        48,
+        42
+      ],
+      "button_background": [
+        58,
+        32,
+        22
+      ]
+    },
+    "properties": {
+      "ntp_logo_alternate": 1
+    }
+  }
+}

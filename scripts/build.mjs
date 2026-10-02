@@ -21,6 +21,94 @@ const out = (path, content) => {
 // ---------------------------------------------------------------- targets
 
 const targets = {
+  chrome: ({ name, displayName, brand, appearance, browser = "chrome" }) => {
+    const rgb = (value) => toHex(value).slice(1).match(/../g).map((channel) => parseInt(channel, 16));
+    const colors = {
+      frame: brand.secondary,
+      frame_inactive: brand.background,
+      background_tab: brand.secondary,
+      background_tab_inactive: brand.background,
+      toolbar: brand.card,
+      toolbar_text: brand.foreground,
+      toolbar_button_icon: brand.primary,
+      tab_text: brand.foreground,
+      tab_background_text: brand.foreground,
+      tab_background_text_inactive: brand.muted_foreground,
+      bookmark_text: brand.foreground,
+      omnibox_background: brand.background,
+      omnibox_text: brand.foreground,
+      ntp_background: brand.background,
+      ntp_text: brand.foreground,
+      ntp_link: brand.primary,
+      ntp_header: brand.border,
+      button_background: brand.accent,
+    };
+    return [`extras/${browser}/${name}/manifest.json`, JSON.stringify({
+      manifest_version: 3,
+      name: displayName,
+      version: "1.0.0",
+      description: `${displayName} by Pompei Tech. Warm volcanic colors for ${browser === "edge" ? "Microsoft Edge" : "Chrome"}.`,
+      theme: {
+        colors: Object.fromEntries(Object.entries(colors).map(([key, value]) => [key, rgb(value)])),
+        properties: { ntp_logo_alternate: appearance === "dark" ? 1 : 0 },
+      },
+    }, null, 2) + "\n"];
+  },
+
+  edge: (palette) => targets.chrome({ ...palette, browser: "edge" }),
+
+  firefox: ({ name, displayName, brand: s, appearance }) => {
+    const colors = {
+      frame: s.secondary,
+      frame_inactive: s.background,
+      tab_background_text: s.foreground,
+      tab_selected: s.card,
+      tab_text: s.foreground,
+      tab_line: s.primary,
+      tab_loading: s.primary,
+      toolbar: s.card,
+      toolbar_text: s.foreground,
+      icons: s.primary,
+      icons_attention: s.highlight,
+      button_background_hover: s.accent,
+      button_background_active: s.secondary,
+      toolbar_field: s.background,
+      toolbar_field_text: s.foreground,
+      toolbar_field_border: s.border,
+      toolbar_field_border_focus: s.primary,
+      toolbar_field_focus: s.background,
+      toolbar_field_text_focus: s.foreground,
+      toolbar_field_highlight: s.accent,
+      toolbar_field_highlight_text: s.foreground,
+      toolbar_top_separator: s.border,
+      toolbar_bottom_separator: s.border,
+      toolbar_vertical_separator: s.border,
+      popup: s.card,
+      popup_text: s.foreground,
+      popup_border: s.border,
+      popup_highlight: s.accent,
+      popup_highlight_text: s.foreground,
+      sidebar: s.background,
+      sidebar_text: s.foreground,
+      sidebar_border: s.border,
+      sidebar_highlight: s.accent,
+      sidebar_highlight_text: s.foreground,
+      ntp_background: s.background,
+      ntp_text: s.foreground,
+    };
+    return [`extras/firefox/${name}/manifest.json`, JSON.stringify({
+      manifest_version: 3,
+      name: displayName,
+      version: "1.0.0",
+      description: `${displayName} by Pompei Tech. Warm volcanic colors for Firefox.`,
+      browser_specific_settings: { gecko: { id: `${name}@pompeitech.com` } },
+      theme: {
+        colors: Object.fromEntries(Object.entries(colors).map(([key, value]) => [key, toHex(value)])),
+        properties: { color_scheme: appearance, content_color_scheme: appearance },
+      },
+    }, null, 2) + "\n"];
+  },
+
   palettePreview: ({ name, displayName, brand }) => {
     const s = Object.fromEntries(Object.entries(brand).map(([key, value]) => [key, toHex(value)]));
     const roles = [
